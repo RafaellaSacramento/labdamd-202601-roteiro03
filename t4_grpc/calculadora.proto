@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package calculadora;
+service Calculadora {
+  rpc Calcular       (RequisicaoCalculo) returns (RespostaCalculo);
+  rpc VerificarSaude (RequisicaoSaude)  returns (RespostaSaude);
+}
+message RequisicaoCalculo {
+  string operacao = 1;
+  double a        = 2;
+  double b        = 3;
+}
+message RespostaCalculo {
+  double resultado = 1;
+  string descricao = 2;
+}
+message RequisicaoSaude {}
+
+message RespostaSaude {
+  string status = 1;
+  string versao = 2;
+}
